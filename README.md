@@ -35,7 +35,7 @@ Requerimientos:
 Instalación:
     Para instalar ProyectoFinal, siga estos pasos:
 
-        Clonar el repositorio de ProyectoFinal en su máquina local utilizando el siguiente comando: git clone https://github.com/your_username/Proyecto-Final.git
+        Clonar el repositorio de ProyectoFinal en su máquina local utilizando el siguiente comando: git clone https://github.com/your_username/Proyecto-Final-Coder.git
         Cree un entorno virtual utilizando el comando python3 -m venv venv.
         Active el entorno virtual utilizando el comando source venv/bin/activate.
         Configure la base de datos utilizando el comando python manage.py migrate.
