@@ -1,0 +1,28 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}
+{% endblock title %}
+
+
+{% block content %}
+
+    {% if user.is_staff %}
+        <div class="row mb-1">
+            <a href="{% url 'admin:index' %}" class="btn btn-outline-dark">Administrar</a>
+        </div>
+    {% endif %}
+
+    <div class="row gx-4 gx-lg-5 align-items-center">
+        <div class="col-lg-7"><img class="img-fluid rounded mb-4 mb-lg-0" src="{% static 'home/imagenes/perrito.png' %}" alt="..." /></div>
+        <div class="col-lg-5">
+            <h1 class="font-weight-light">Panchitos Veterinaria</h1>
+            <p>En Panchitos Veterinaria, amamos a tus mascotas tanto como tú. Ofrecemos atención experta 
+                y compasiva para mantener a tus amigos peludos sanos y felices. ¡Confía en nosotros para 
+                el cuidado que se merecen!</p>
+
+            <a class="btn btn-success" href="https://wa.me/5492619999999999" target="_blank">WhatsApp</a>
+        </div>
+    </div>
+
+{% endblock content %}

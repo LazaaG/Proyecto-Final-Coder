@@ -1,0 +1,62 @@
+{% extends 'base.html' %}
+
+{% block title %}
+    Listado de mascotas
+{% endblock title %}
+
+{% block content %}
+
+<div class="row mb-4">
+    <div class="col-6">
+        <a href="{% url 'mascota:mascota_create' %}" class="btn btn-success btn-sm ">Crear mascota</a>
+    </div>
+    <div class="col-6">
+        <form action="" method="get">
+            <input type="text" name="buscar" placeholder="Buscar mascota">
+        </form>
+    </div>
+</div>
+
+<div class="row mb-1">
+    <div class="col-1">
+        Categoria
+    </div>
+    <div class="col-1">
+        Nombre
+    </div>
+    <div class="col-1">
+        Raza
+    </div>
+</div>
+
+{% for mascota in object_list %}
+    <div class="row mb-2">
+        <div class="col-1">
+            {% if mascota.categoria %}
+                {{ mascota.categoria }}
+            {% else %}
+            {% endif %}
+        </div>
+        <div class="col-1">
+            {{ mascota.nombre | capfirst }}
+        </div>
+        <div class="col-1">
+            {{ mascota.raza }}
+        </div>
+        <div class="col-5">
+        </div>
+        <div class="col-1">
+            <a href="{% url 'mascota:mascota_detail' mascota.id %}" class="btn btn-secondary btn-sm">Detalle</a>
+        </div>
+        <div class="col-1">
+            <a href="{% url 'mascota:mascota_update' mascota.id %}" class="btn btn-primary btn-sm">Actualizar</a>
+        </div>
+        <div class="col-1">
+            <a href="{% url 'mascota:mascota_delete' mascota.id %}" class="btn btn-danger btn-sm">Eliminar</a>
+        </div>
+    </div>
+{% endfor %}
+
+    {% url 'mascota:index' as to_url %}
+
+{% endblock content %}

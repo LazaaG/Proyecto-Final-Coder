@@ -1,0 +1,55 @@
+{% extends 'base.html' %}
+
+{% block title %}
+    Listado de Categorías
+{% endblock title %}
+
+{% block content %}
+
+<div class="row mb-4">
+    <div class="col-6">
+        <a href="{% url 'mascota:mascotacategoria_create' %}" class="btn btn-success btn-sm ">Crear Categoría</a>
+    </div>
+    <div class="col-6">
+        <form action="" method="get">
+            <input type="text" name="buscar" placeholder="Buscar categoría">
+        </form>
+    </div>
+</div>
+
+<div class="row mb-1">
+    <div class="col-1">
+        Categoria
+    </div>
+    <div class="col-1">
+        Descripcion
+    </div>
+</div>
+
+{% for mascota in object_list %}
+    <div class="row mb-2">
+        <div class="col-1">
+            {{ mascota.categoria }}
+            {{ mascota.nombre }}
+        </div>
+        <div class="col-1">
+            {{ mascota.categoria }}
+            {{ mascota.descripcion }}
+        </div>
+        <div class="col-5">
+        </div>
+        <div class="col-1">
+            <a href="{% url 'mascota:mascotacategoria_detail' mascota.id %}" class="btn btn-secondary btn-sm">Detalle</a>
+        </div>
+        <div class="col-1">
+            <a href="{% url 'mascota:mascotacategoria_update' mascota.id %}" class="btn btn-primary btn-sm">Actualizar</a>
+        </div>
+        <div class="col-1">
+            <a href="{% url 'mascota:mascotacategoria_delete' mascota.id %}" class="btn btn-danger btn-sm">Eliminar</a>
+        </div>
+    </div>
+{% endfor %}
+
+    {% url 'mascota:index' as to_url %}
+
+{% endblock content %}

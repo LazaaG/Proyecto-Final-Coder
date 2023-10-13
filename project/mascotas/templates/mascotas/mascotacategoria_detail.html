@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+
+{% block title %}
+    Vista en detalle
+{% endblock title %}
+
+{% block content %}
+
+    <ul>
+        <li><strong>Nombre:</strong> {{ object.nombre | capfirst }}</li>
+        <li><strong>Descripción:</strong>
+            {% if object.descripcion %}
+                {{ object.descripcion }}
+            {% else %}
+                No hay descripción
+            {% endif %}
+        </li>
+    </ul>
+
+    {% url 'mascota:mascotacategoria_list' as to_url %}
+
+{% endblock content %}

@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+
+
+{% block content %}
+
+    <form action="{% url 'register' %}" method="post">
+        {% csrf_token %}
+        {{ mi_formulario.as_p }}
+
+        <div class="d-grid gap-3">
+            <button type="submit" class="btn btn-success">Registrarse</button>
+        </div>
+    </form>
+
+{% endblock content %}
