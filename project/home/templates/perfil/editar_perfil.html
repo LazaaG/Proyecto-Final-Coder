@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+
+{% block title %}
+{% endblock title %}
+
+{% block content %}
+    
+    <h1>Editar Perfil</h1>
+
+    <form method="POST">{% csrf_token %}
+        {{mi_formulario.as_p}}
+
+        <input type="submit" value="Actualizar">
+    </form>
+  
+{% endblock content %}

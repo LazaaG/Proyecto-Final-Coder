@@ -20,7 +20,7 @@ class MascotaAdmin(admin.ModelAdmin):
         "nombre",
         "raza",
         "descripcion",
-        "fecha_actualizacion",
+        "fecha_nacimiento",
     )
     list_display_links = ("nombre",)
     search_fields = ("nombre",)
@@ -29,4 +29,4 @@ class MascotaAdmin(admin.ModelAdmin):
         "nombre",
     )
     list_filter = ("categoria",)
-    date_hierarchy = "fecha_actualizacion"
+    date_hierarchy = "fecha_nacimiento"

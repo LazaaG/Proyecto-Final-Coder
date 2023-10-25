@@ -11,9 +11,14 @@
         <li><strong>Nombre:</strong> {{ object.nombre }}
         <li><strong>Raza:</strong> {{ object.raza }}
         <li><strong>Descripción:</strong> {{ object.descripcion }}
-        <li><strong>Fecha de actualización:</strong> {{ object.fecha_actualizacion }}
+        <li><strong>Fecha de nacimiento:</strong> {{ object.fecha_nacimiento }}
+        <li><strong>Foto:</strong>
         </li>
     </ul>
+
+    <div>
+        <img src="{{object.foto.url}}" width="80%" alt="{{object.nombre}}">
+    </div>
 
     {% url 'mascota:mascota_list' as to_url %}
 

@@ -17,12 +17,12 @@ class MascotaCategoriaForm(forms.ModelForm):
 class MascotaForm(forms.ModelForm):
     class Meta:
         model = models.Mascota
-        fields = "__all__"
+        fields = '__all__'
 
         widgets = {
             "categoria": forms.Select(attrs={"class": "form-control"}),
             "nombre": forms.TextInput(attrs={"class": "form-control"}),
             "raza": forms.TextInput(attrs={"class": "form-control"}),
             "descripcion": forms.TextInput(attrs={"class": "form-control"}),
-            "fecha_actualizacion": forms.DateInput(attrs={"class": "form-control"}),
+            "fecha_nacimiento": forms.DateInput(attrs={"class": "form-control"}),
         }

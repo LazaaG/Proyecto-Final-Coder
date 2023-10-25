@@ -7,9 +7,11 @@
 {% block content %}
 
 <div class="row mb-4">
-    <div class="col-6">
-        <a href="{% url 'mascota:mascota_create' %}" class="btn btn-success btn-sm ">Crear mascota</a>
-    </div>
+    {% if user.is_staff %}
+        <div class="col-6">
+            <a href="{% url 'mascota:mascota_create' %}" class="btn btn-success btn-sm " enctype ="multipart/form-data">Crear mascota</a>
+        </div>
+    {% endif %}
     <div class="col-6">
         <form action="" method="get">
             <input type="text" name="buscar" placeholder="Buscar mascota">
@@ -48,12 +50,21 @@
         <div class="col-1">
             <a href="{% url 'mascota:mascota_detail' mascota.id %}" class="btn btn-secondary btn-sm">Detalle</a>
         </div>
+
         <div class="col-1">
-            <a href="{% url 'mascota:mascota_update' mascota.id %}" class="btn btn-primary btn-sm">Actualizar</a>
+            {% if mascota.foto %}
+                <a href="{{ mascota.foto.url }}" class="btn btn-secondary btn-sm">Foto</a>
+            {% endif %}
         </div>
-        <div class="col-1">
-            <a href="{% url 'mascota:mascota_delete' mascota.id %}" class="btn btn-danger btn-sm">Eliminar</a>
-        </div>
+
+        {% if user.is_staff %}
+            <div class="col-1">
+                <a href="{% url 'mascota:mascota_update' mascota.id %}" class="btn btn-primary btn-sm">Actualizar</a>
+            </div>
+            <div class="col-1">
+                <a href="{% url 'mascota:mascota_delete' mascota.id %}" class="btn btn-danger btn-sm">Eliminar</a>
+            </div>
+        {% endif %}
     </div>
 {% endfor %}
 

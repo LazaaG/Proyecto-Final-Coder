@@ -23,9 +23,10 @@ class Mascota(models.Model):
     nombre = models.CharField(max_length=200)
     raza = models.CharField(max_length=50)
     descripcion = models.CharField(max_length=250, null=True, blank=True, verbose_name="descripción")
-    fecha_actualizacion = models.DateTimeField(
-        default=timezone.now, editable=False, verbose_name="fecha de actualización"
+    fecha_nacimiento = models.DateTimeField(
+        default=timezone.now, editable=False, verbose_name="fecha de nacimiento"
     )
+    foto = models.ImageField(upload_to='imagenes/', null=True, blank=True)
 
     class Meta:
         verbose_name = "Mascota"
