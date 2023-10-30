@@ -16,16 +16,6 @@
           {% url 'EditarPerfil' as url %}
           <button type="button" onclick="window.location.href='{{ url }}'">Editar Perfil</button>
       </div>
-  
-      <div style="margin-right: 5px;">
-          {% url 'AgregarAvatar' as url %}
-          <button type="button" onclick="window.location.href='{{ url }}'">Agregar Avatar</button>
-      </div>
-  
-      <div>
-          {% url 'Avatar' as url %}
-          <button type="button" onclick="window.location.href='{{ url }}'">Ver los avatares</button>
-      </div>
   </div>
   
 {% endblock content %}
